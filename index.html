@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Leads - Conexão com Advogados Especializados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { background:#000; color:#fff; display:flex; flex-direction:column; align-items:center; min-height:100vh; line-height:1.6; }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      padding: 10px 20px; /* reduz espaço em branco */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+    header img {
+      max-height: 250px; /* logo bem grande no desktop */
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    header img:hover { transform: scale(1.05); }
+
+    @media (max-width: 1024px) {
+      header img { max-height: 200px; } /* tablets */
+    }
+    @media (max-width: 768px) {
+      header img { max-height: 150px; } /* laptops menores e tablets pequenos */
+    }
+    @media (max-width: 480px) {
+      header img { max-height: 100px; } /* celulares */
+    }
+
+    /* MAIN */
+    main {
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      width:100%;
+      max-width:600px;
+    }
+    main h1 { font-size:2.5rem; margin-bottom:15px; font-weight:700; }
+    main p { font-size:1.15rem; margin-bottom:30px; color:#ddd; }
+
+    /* FORMULÁRIO */
+    form { width:100%; display:flex; flex-direction:column; gap:15px; }
+    form input, form textarea {
+      padding:15px;
+      border:none;
+      border-radius:8px;
+      font-size:1rem;
+      width:100%;
+      font-family:'Poppins', sans-serif;
+    }
+    form input::placeholder, form textarea::placeholder { color:#888; }
+    form textarea { resize:vertical; min-height:120px; }
+
+    .cta-button {
+      background:#fff;
+      color:#000;
+      font-weight:bold;
+      padding:15px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:1.2rem;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform:scale(1); box-shadow:0 0 0px rgba(255,255,255,0.5); }
+      50% { transform:scale(1.05); box-shadow:0 0 20px rgba(255,255,255,0.5); }
+      100% { transform:scale(1); box-shadow:0 0 0px rgba(255,255,255,0.5); }
+    }
+
+    /* FOOTER */
+    footer { text-align:center; padding:20px; font-size:0.9rem; color:#aaa; }
+
+    /* RESPONSIVO */
+    @media (max-width:480px) {
+      main h1 { font-size:2rem; }
+      .cta-button { font-size:1rem; padding:12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="img.png" alt="Logo Alpha Leads">
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Conecte-se ao Advogado Certo</h1>
+    <p>Descreva seu caso brevemente e nós ligamos você ao advogado especializado para resolver. <strong>Não somos uma advocacia, apenas conectamos você ao profissional qualificado.</strong></p>
+
+    <form id="whatsappForm">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <textarea id="descricao" placeholder="Descreva seu caso brevemente" required></textarea>
+      <button type="submit" class="cta-button">Conectar Agora</button>
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Alpha Leads. Todos os direitos reservados.
+  </footer>
+
+  <!-- SCRIPT WHATSAPP -->
+  <script>
+    const form = document.getElementById('whatsappForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const descricao = document.getElementById('descricao').value.trim();
+      const mensagem = `Olá, meu nome é ${nome}%0ADescrição do caso: ${descricao}`;
+      const whatsappNumber = "5535991429261";
+      window.open(`https://wa.me/${whatsappNumber}?text=${mensagem}`, "_blank");
+    });
+  </script>
+
+</body>
+</html>
