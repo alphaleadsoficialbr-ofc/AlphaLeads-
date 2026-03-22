@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Leads - Conexão com Advogados Especializados</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    
+    body { 
+      background:#000; 
+      color:#fff; 
+      line-height:1.6; 
+      font-family:'Poppins', sans-serif;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px 10px 20px;
+    }
+    
+    header img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      animation: pulseLogo 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseLogo {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    main {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      max-width:600px;
+      margin: 0 auto;
+    }
+
+    h1 { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem; 
+      line-height: 1.1;
+      margin-bottom: 20px; 
+      font-weight: 700; 
+      letter-spacing: -1px;
+    }
+
+    .subtitle { 
+      font-size: 1.1rem; 
+      margin-bottom: 30px; 
+      color: #bbb; 
+      font-weight: 300;
+    }
+
+    /* CARD INFORMATIVO - AJUSTADO CONFORME IMAGEM */
+    .disclaimer {
+      background: #111; /* Fundo escuro conforme imagem */
+      padding: 20px;
+      border-radius: 15px; /* Bordas mais arredondadas conforme imagem */
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      border: 2px solid #7C00FF; /* Roxo vibrante da borda */
+      color: #ffffff; /* Letras Brancas */
+      text-align: center;
+    }
+
+    form { width:100%; display:flex; flex-direction:column; gap:15px; }
+    
+    form input, form textarea {
+      padding:16px; 
+      border-radius:12px; 
+      font-size:1rem; 
+      width:100%;
+      background:#111; 
+      color:#fff; 
+      outline: none;
+      border: 1px solid #222;
+      transition: all 0.3s;
+    }
+    
+    form input:focus, form textarea:focus { 
+      border-color: #25D366; 
+      background: #161616;
+    }
+
+    .cta-button {
+      background:#25D366; 
+      color:#fff;
+      font-weight:700; 
+      padding:20px; 
+      border:none; 
+      border-radius:12px;
+      cursor: not-allowed; 
+      font-size:1.2rem; 
+      display:flex; 
+      align-items:center;
+      justify-content:center; 
+      gap:12px; 
+      transition: all 0.4s ease;
+      position: relative; 
+      overflow: hidden; 
+      pointer-events: none; 
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .cta-button.active {
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 1;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .cta-button.active::before {
+      content: ""; 
+      position: absolute; 
+      top: 0; 
+      left: -150%; 
+      width: 100%; 
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: all 0.7s;
+    }
+
+    .cta-button.active:hover::before { left: 150%; }
+
+    /* DEPOIMENTOS - AJUSTADO CONFORME IMAGEM */
+    .prova-social { margin-top: 40px; width: 100%; }
+    .testimonial { 
+      background:#111; 
+      padding:20px; 
+      border-radius:15px; 
+      font-size:0.95rem; 
+      margin-bottom: 15px;
+      text-align: left;
+      border: 2px solid #7C00FF; /* Roxo vibrante da borda */
+      color: #ffffff; /* Letras Brancas */
+    }
+    .testimonial strong { color:#25D366; display: block; margin-top: 5px; }
+
+    footer { padding: 40px 20px; font-size: 0.8rem; color: #666; text-align: center; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      header img { max-width: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img.png" alt="Alpha Leads Logo">
+  </header>
+
+  <main>
+    <h1>Conecte-se ao Advogado Certo</h1>
+    
+    <p class="subtitle">Encontre o especialista ideal para o seu caso de forma rápida e segura.</p>
+    
+    <div class="disclaimer">
+      <strong>Nota importante:</strong> Não somos uma advocacia. Somos uma plataforma que conecta você diretamente a profissionais qualificados.
+    </div>
+
+    <form id="whatsappForm">
+      <input type="text" id="nome" placeholder="Seu nome completo" required>
+      <textarea id="descricao" placeholder="Descreva brevemente o seu problema jurídico..." required></textarea>
+      
+      <button type="submit" id="submitBtn" class="cta-button">
+        <i class="fab fa-whatsapp"></i>
+        Conectar agora
+      </button>
+    </form>
+
+    <div class="prova-social">
+      <div class="testimonial">
+        "Precisava de um especialista em direito civil e fui atendida em minutos. O suporte foi excelente e encontrei exatamente quem eu precisava."
+        <strong>— Juliana Vasconcelos</strong>
+      </div>
+      <div class="testimonial">
+        "Sistema muito prático e direto. Em vez de procurar no Google sem saber quem contratar, aqui a conexão foi certeira."
+        <strong>— Ricardo Oliveira</strong>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Alpha Leads. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const nomeInput = document.getElementById('nome');
+    const descInput = document.getElementById('descricao');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function validar() {
+      if (nomeInput.value.trim().length > 2 && descInput.value.trim().length > 5) {
+        submitBtn.classList.add('active');
+      } else {
+        submitBtn.classList.remove('active');
+      }
+    }
+
+    nomeInput.addEventListener('input', validar);
+    descInput.addEventListener('input', validar);
+
+    document.getElementById('whatsappForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const texto = `Olá, meu nome é ${nomeInput.value}%0ADescrição: ${descInput.value}`;
+      window.open(`https://wa.me/5535991429261?text=${texto}`, "_blank");
+    });
+  </script>
+
+</body>
+</html>
